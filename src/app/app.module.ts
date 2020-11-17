@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './shared/guards/auth-guard.service';
 import { LoadingComponent } from './shared/components/loading/loading.component';
 import { HTTPInterceptor } from './shared/http-interceptor';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { HTTPInterceptor } from './shared/http-interceptor';
       useClass: HTTPInterceptor,
       multi: true,
     },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
