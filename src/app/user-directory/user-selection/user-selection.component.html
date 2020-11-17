@@ -1,0 +1,13 @@
+<mat-card>
+    <h2>Selected Users</h2>
+    <ul *ngIf="users && users.length">
+        <li *ngFor="let user of users">
+            <div class="chip">
+                {{user.userName}}
+            </div>
+        </li>
+    </ul>
+    <div *ngIf="users.length === 0" class="info-box">
+        <p>No users selected!</p>
+    </div>
+</mat-card>
